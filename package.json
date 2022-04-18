@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 	  "build": "./build.py release",
-	  "prepare": "./build.py release"
+	  "prepare": "npm run build"
 	},
 	"keywords": [
 	  "gx",
