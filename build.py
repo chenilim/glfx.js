@@ -2,7 +2,7 @@
 
 module = 'fx'
 input_path = 'src/'
-output_path = 'glfx.js'
+output_path = 'dist/glfx.js'
 
 import re, os, sys, time, tempfile
 
@@ -35,6 +35,7 @@ def compress_glsl(text):
     return text
 
 def build():
+    os.system('mkdir dist')
     data = 'var %s = (function() {\nvar exports = {};\n\n' % module + compile(sources()) + '\nreturn exports;\n})();\n'
     if 'release' in sys.argv:
         f1, temp1_path = tempfile.mkstemp()
@@ -42,7 +43,7 @@ def build():
         os.write(f1, data)
         os.close(f1)
         os.close(f2)
-        os.system('closure --js %s --js_output_file %s' % (temp1_path, temp2_path))
+        os.system('closure-compiler --js %s --js_output_file %s' % (temp1_path, temp2_path))
         os.remove(temp1_path)
         data = open(temp2_path).read()
         os.remove(temp2_path)

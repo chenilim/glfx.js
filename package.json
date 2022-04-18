@@ -1,6 +1,6 @@
 {
 	"name": "glfx",
-	"main": "./glfx.js",
+	"main": "./dist/glfx.js",
 	"version": "0.0.4",
 	"description": "An image effects library for JavaScript using WebGL",
 	"repository": {
@@ -8,8 +8,7 @@
 	  "url": "https://github.com/evanw/glfx.js.git"
 	},
 	"scripts": {
-	  "build": "./build.py release",
-	  "prepare": "npm run build"
+	  "build": "./build.py release"
 	},
 	"keywords": [
 	  "gx",
